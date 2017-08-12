@@ -16,8 +16,15 @@ class Persona(models.Model):
     def __str__(self):
         return "{} {}".format(self.apellido, self.nombre)
 
+
+
 class Tutor(Persona):
+    class Meta:
+        verbose_name = 'Tutor'
+        verbose_name_plural = 'Tutores'
+
     pass
+
 
 
 class Curso(models.Model):
@@ -29,15 +36,17 @@ class Curso(models.Model):
         return self.nombre
 
 
+
 class Institucion(models.Model):
     nombre = models.CharField(max_length=50)
 
     class Meta:
-        verbose_name = "Institucion"
+        verbose_name = "Institución"
         verbose_name_plural = "Instituciones"
 
     def __str__(self):
         pass
+
 
 
 class Asistente(Persona):
@@ -47,7 +56,9 @@ class Asistente(Persona):
         verbose_name_plural = "Asistentes"
 
     email = models.CharField(max_length=50)
-    # institucion = models.ForeignKey(Institucion)
     institucion = models.CharField(max_length=50)
     curso = models.ForeignKey(Curso)
     presente = models.BooleanField(default=False)
+
+    def url_set_asistencia(self):
+        return self.pk
