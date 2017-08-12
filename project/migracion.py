@@ -15,8 +15,15 @@ def cargar_asistentes():
         nombre = ' '.join(nombre_completo[0:-1])
         dni = row[3]
         institucion = row[4]
+        email = row[1]
         # carrera = row[5]
         # mu = row[6]
 
-        models.Asistente.objects.create(apellido=apellido, nombre=nombre, dni=dni, institucion=institucion, curso=cur)
+        models.Asistente.objects.create(
+            apellido=apellido, 
+            nombre=nombre, 
+            dni=dni,
+            email=email, 
+            institucion=institucion, 
+            curso=cur)
         print(nombre_completo)
