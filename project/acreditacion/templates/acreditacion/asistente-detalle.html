@@ -1,0 +1,44 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<table>
+        <tbody>
+            <tr>
+                <th>Nombre: </th>
+                <td>{{ object.nombre|default:'No hay datos' }}</td>
+            </tr>
+    
+            <tr>
+                <th>Apellido:</th>
+                <td>{{ object.apellido|default:'No hay datos' }}</td>
+            </tr>
+    
+            <tr>
+                <th>DNI: </th>
+                <td>{{ object.dni|default:'No hay datos' }}</td>
+            </tr>
+    
+            <tr>
+                <th>Fecha de Nacimiento: </th>
+                <td>{{ object.fecha_nacimiento|default:'No hay datos' }}</td>
+            </tr>
+    
+            <tr>
+                <th>Email: </th>
+                <td>{{ object.email|default:'No hay datos' }}</td>
+            </tr>
+    
+            <tr>
+                <th>Curso: </th>
+                <td>{{ object.curso|default:'No hay datos' }}</td>
+            </tr>
+
+            <tr>
+                <th>Presente: </th>
+                <td>{{ object.presente|default:'No hay datos' }}</td>
+                </tr>
+        </tbody>
+    
+    </table>
+
+{% endblock %}

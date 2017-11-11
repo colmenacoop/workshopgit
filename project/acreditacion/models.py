@@ -17,14 +17,12 @@ class Persona(models.Model):
         return "{} {}".format(self.apellido, self.nombre)
 
 
-
 class Tutor(Persona):
     class Meta:
         verbose_name = 'Tutor'
         verbose_name_plural = 'Tutores'
 
     pass
-
 
 
 class Curso(models.Model):
@@ -34,19 +32,6 @@ class Curso(models.Model):
 
     def __str__(self):
         return self.nombre
-
-
-
-class Institucion(models.Model):
-    nombre = models.CharField(max_length=50)
-
-    class Meta:
-        verbose_name = "Institución"
-        verbose_name_plural = "Instituciones"
-
-    def __str__(self):
-        pass
-
 
 
 class Asistente(Persona):

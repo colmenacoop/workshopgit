@@ -1,0 +1,43 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<p> Cantidad de objetos {{object_list | length}}</p>
+<a href="{% url 'acreditacion:asistente-alta' %}">Nuevo Asistente</a>
+
+<table>
+    {% if object_list %}
+        <thead>
+            <tr>
+                <td>#</td>
+                <td>Nombre</td>
+                <td>Apellido</td>
+                <td>Curso</td>
+                <td>Presente</td>
+                <td>Opciones</td>
+            </tr>
+        </thead>
+        <tbody>
+
+            {% for asistente in object_list %}
+            <tr>
+                <td>{{ asistente.pk }}</td>
+                <td>{{ asistente.nombre}}</td>
+                <td>{{ asistente.apellido }}</td>
+                <td>{{ asistente.curso }}</td>
+                <td>{{ asistente.presente }}</td>
+                <td>
+                    <a href="{% url 'acreditacion:asistente-detalle' asistente.pk %}">Detalle</a>
+                    <a href="{% url 'acreditacion:asistente-modificar' asistente.pk %}">Editar</a>
+                    <a href="{% url 'acreditacion:asistente-eliminar' asistente.pk %}">Eliminar</a>
+                </td>
+
+            </tr>
+        </tbody>
+            {% endfor %}
+    
+    {% else %}
+        <h1>No hay datos</h1>
+
+    {% endif %}
+</table>
+{% endblock %}

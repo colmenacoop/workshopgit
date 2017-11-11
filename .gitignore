@@ -1,6 +1,30 @@
-__pycache__/
+# ide and tools extra
+.idea/*
 
-project/db.sqlite3
+project/*.idea/
+project/*.orig
+project/*.sublime-project
+project/*.sublime-workspace
+.vscode
 
+# db
+
+logs/
+
+# archivos temporales y migraciones
+*.pyc
+*.pyo
+*.bak
+*.bak2
+*.log
+*.py.orig
+*/__pycache__/
+
+!project/*/migrations/__init__.py
+project/*/migrations/__pycache__
 project/*/migrations/0*
-project/*/migrations/__pycache__/
+project/*/__pycache__
+
+# static y temporales
+project/media/*
+project/static/*
